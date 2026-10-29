@@ -3550,6 +3550,11 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _is_svs_valid(current_selection):
 			if _handle_has_hover(current_selection):
+				if (Input.is_key_pressed(KEY_ALT)
+						and current_selection.shape_type == ScalableVectorShape2D.ShapeType.PATH
+						and _curve_control_has_hover(current_selection)):
+					# Alt + Click opens the set global position popup, so don't drag the handle
+					return true
 				if _hover_point_idx > -1:
 					var pt_idx : int = _hover_point_idx
 					if current_selection.shape_type != ScalableVectorShape2D.ShapeType.PATH:

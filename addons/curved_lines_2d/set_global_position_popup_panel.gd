@@ -41,7 +41,6 @@ func popup_with_value(metadata : Dictionary, snapped : bool, snap_step : Vector2
 	else:
 		x_pos_input.step = 0.001
 		y_pos_input.step = 0.001
-	_on_value_changed()
 	popup_centered()
 
 
